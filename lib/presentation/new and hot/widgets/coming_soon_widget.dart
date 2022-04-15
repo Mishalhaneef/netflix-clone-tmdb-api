@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/constants.dart';
 import 'package:netflix_clone/presentation/new%20and%20hot/screen_new_and_hot.dart';
+import 'package:netflix_clone/presentation/new%20and%20hot/widgets/custom_button.dart';
 import 'package:netflix_clone/presentation/widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
