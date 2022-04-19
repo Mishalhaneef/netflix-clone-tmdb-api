@@ -1,23 +1,45 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/constants.dart';
-
-const _imageUrl =
-    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6nhwr1LCozBiIN47b8oBEomOADm.jpg";
+import 'package:netflix_clone/presentation/search/search_details/detailed_view.dart';
 
 class MainCard extends StatelessWidget {
-  const MainCard({Key? key}) : super(key: key);
+  const MainCard({
+    Key? key,
+    required this.movieImage,
+    required this.movieName,
+  }) : super(key: key);
+  final String movieImage;
+  final movieName;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 250,
-      decoration: BoxDecoration(
-          borderRadius: kRadius,
-          image: const DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(_imageUrl),
-          )),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SearchDetailedScreen(
+                movieName: movieName,
+                moviePoster: movieImage,
+              ),
+            ));
+      },
+      child: movieImage == null
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : Container(
+              width: 150,
+              height: 250,
+              decoration: BoxDecoration(
+                borderRadius: kRadius,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(movieImage),
+                ),
+              ),
+            ),
     );
   }
 }

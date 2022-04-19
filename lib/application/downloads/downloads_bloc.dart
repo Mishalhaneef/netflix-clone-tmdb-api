@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netflix_clone/domain/core/api_failures/api_core_failures.dart';
-import 'package:netflix_clone/domain/downloads/i_downloads_repo.dart';
+import 'package:netflix_clone/domain/downloads/download_service.dart';
 import 'package:netflix_clone/domain/downloads/models/downloads.dart';
 //parts imports
 part 'downloads_event.dart';
@@ -15,16 +15,22 @@ part 'downloads_bloc.freezed.dart';
 //BLOC codes
 @injectable
 class DownloadsBloc extends Bloc<DownloadsEvent, DownloadState> {
-  final IDownloadsRepo _downloadsRepo;
+  final DownloadService _downloadsRepo;
 
-  /// downloads page initial state declared in super(). and
+  /// downloads page initial state declared in super(). 
   DownloadsBloc(this._downloadsRepo) : super(DownloadState.initial()) {
     on<_GetDownloadsImage>((event, emit) async {
       // emiting state class, [isLoading] as true and failure or succ option as none().
-      emit(state.copyWith(
-        isLoading: true,
-        downloadsFailureOrSuccesOption: none(),
-      ));
+      if (state.downloads.isNotEmpty) {
+        emit(state);
+        return;
+      }
+      emit(
+        state.copyWith(
+          isLoading: true,
+          downloadsFailureOrSuccesOption: none(),
+        ),
+      );
       // [_downloadsRepo.getDownloadsImage()] assigning to a Either variable
       // calles downloadsOption.
       //* creating a variable for this funciton , this funciton returns data from json as dart map

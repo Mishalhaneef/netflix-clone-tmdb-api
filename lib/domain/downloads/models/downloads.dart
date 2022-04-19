@@ -11,6 +11,7 @@ class Downloads with _$Downloads {
     /// store in JsoneKey annotation class. and now we can use the variable name
     /// whatever we want.
     @JsonKey(name: "poster_path") required String? posterPath,
+    @JsonKey(name: "title") required String? title,
   }) = _Downloads;
 
   factory Downloads.fromJson(Map<String, dynamic> json) =>

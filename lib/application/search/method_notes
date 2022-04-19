@@ -1,0 +1,90 @@
+##            BLOC STATE MANAGEMENT
+/// [---------------------------------------]
+
+"here is how the bloc statemanagement works. an example code with counter app's bloc"
+
+/// in [state]. create a class with required value for example
+
+@freezed
+class CounterState with _$CounterState {
+  const factory CounterState({
+    required CounterFromDB counter,
+    required bool isLoading,
+    required bool isError,
+  }) = _CounterState;
+
+  factory CounterState.initial() => const CounterState(
+        counter: datafrom_db
+        isLoading: false,
+        isError: false,
+      );
+}
+
+
+// and there should be a event class to declare how many event (that means how many 
+// thigns should happen when the bloc called) that state have
+
+- here is the code example
+
+@freezed
+class CounterEvent with _$CounterEvent {
+  const factory CounterEvent.initialize() = Initialize;
+  const factory CounterEvent.increase() = Incerease;
+  const factory CounterEvent.decrease() = Decrease;
+  const factory CounterEvent.reset() = Reset;
+}
+
+/// this is the all event in the counter app
+
+
+/// so this is a state of a counter app that count actually from a [database]. 
+/// so there should be a severeal reason to get error while parsing the data from 
+/// database , so declare the reasons or declare what should happen when the bloc is called
+/// in [CounterState]. 
+
+/// counter state code example 
+
+class CounterBloc extends Bloc<CounterEvent, CounterState>{
+  CounterBloc() : super (CounterState.initial()){
+    on<Increase>((event, emit) {
+      sate.counter++;
+      /// and a code line to add the counter to [database]
+    });
+
+    on<Decrease>((event, emit) {
+      state.counter - 1;
+      /// and a code line to add the counter to [database]
+    });
+
+    on<Reset>((event, emit) {
+      state.counter = 0;
+      /// and a code line to add the counter to [database]
+    });
+
+    on<Initialize>((event, emit) {
+      /// a code line to get value that last saved to database
+      /// another [if else] code to set if the data is not avail in db or if a new account
+      /// to make the value to 0
+    });
+  }
+} 
+
+
+
+
+/// so this is how [BLOC] works, simple and easy
+
+
+how data appended from api
+here is how?
+
+/// create an abstract class [getImage()]
+/// and create a page called [implementation.dart]
+/// and in that page declared a class with getiamge implemntation
+/// and get the data thru [DIO] and assigned to a var
+[example]
+
+final response = await Dio(BaseOptions()).get(ApiEndPoints.downlaod);
+
+/// and use the [response] to check all error (eg : [response.statusCode == 200] like this)
+/// and called this funciton to search bloc. and set the state depend on the value using fold

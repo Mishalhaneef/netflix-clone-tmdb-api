@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'search_response.g.dart';
 
 @JsonSerializable()
@@ -23,6 +22,7 @@ class SearchResultData {
   String? originalTitle;
   @JsonKey(name: 'poster_path')
   String? posterPath;
+
 
   SearchResultData({
     this.id,

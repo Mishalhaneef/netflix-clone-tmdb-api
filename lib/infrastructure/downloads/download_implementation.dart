@@ -5,11 +5,11 @@ import 'package:injectable/injectable.dart';
 import 'package:netflix_clone/domain/core/api_end_points.dart';
 import 'package:netflix_clone/domain/core/api_failures/api_core_failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:netflix_clone/domain/downloads/i_downloads_repo.dart';
+import 'package:netflix_clone/domain/downloads/download_service.dart';
 import 'package:netflix_clone/domain/downloads/models/downloads.dart';
 
-@LazySingleton(as: IDownloadsRepo)
-class DownloadsRepository implements IDownloadsRepo {
+@LazySingleton(as: DownloadService)
+class DownloadsRepository implements DownloadService {
   @override
   Future<Either<CoreCommanFailures, List<Downloads>>>
       getDownloadsImage() async {
@@ -24,7 +24,7 @@ class DownloadsRepository implements IDownloadsRepo {
         final downloadList = (response.data['results'] as List).map((e) {
           return Downloads.fromJson(e);
         }).toList();
-
+        print(downloadList);
         return Right(downloadList);
       } else {
         // if its an else case from the status code that given as condition on

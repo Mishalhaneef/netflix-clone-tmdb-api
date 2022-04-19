@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/constants.dart';
+import 'package:netflix_clone/presentation/search/widgets/search_result.dart';
 import 'package:netflix_clone/presentation/widgets/main_card.dart';
 import 'package:netflix_clone/presentation/widgets/main_title.dart';
 
@@ -28,7 +29,10 @@ class MainTitleCard extends StatelessWidget {
                 padding: EdgeInsets.only(
                   right: 10,
                 ),
-                child: MainCard(),
+                child: MainCard(
+                  movieImage: imageUrl,
+                  movieName: null,
+                ),
               ),
             ),
           ),

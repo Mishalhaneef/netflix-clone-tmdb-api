@@ -1,0 +1,18 @@
+  final adsList = [
+    "https://www.wordstream.com/wp-content/uploads/2021/07/persuasive-ads-coca-cola-1.jpg",
+    "https://www.inma.org/files/images/blogs/feature_photos/print_september20_hannah_2020-in-ads-1800.jpg",
+    "https://penji.co/wp-content/uploads/2019/04/Best-Food-Ad-Designs.jpg",
+    "https://i.insider.com/4f0c8843ecad042f0b000013?width=750&format=jpeg&auto=webp",
+    "https://www.wordstream.com/wp-content/uploads/2021/07/persuasive-ads-coca-cola-1.jpg",
+    "https://www.inma.org/files/images/blogs/feature_photos/print_september20_hannah_2020-in-ads-1800.jpg",
+    "https://penji.co/wp-content/uploads/2019/04/Best-Food-Ad-Designs.jpg",
+    "https://i.insider.com/4f0c8843ecad042f0b000013?width=750&format=jpeg&auto=webp",
+    "https://www.wordstream.com/wp-content/uploads/2021/07/persuasive-ads-coca-cola-1.jpg",
+    "https://www.inma.org/files/images/blogs/feature_photos/print_september20_hannah_2020-in-ads-1800.jpg",
+    "https://penji.co/wp-content/uploads/2019/04/Best-Food-Ad-Designs.jpg",
+    "https://i.insider.com/4f0c8843ecad042f0b000013?width=750&format=jpeg&auto=webp",
+    "https://www.wordstream.com/wp-content/uploads/2021/07/persuasive-ads-coca-cola-1.jpg",
+    "https://www.inma.org/files/images/blogs/feature_photos/print_september20_hannah_2020-in-ads-1800.jpg",
+    "https://penji.co/wp-content/uploads/2019/04/Best-Food-Ad-Designs.jpg",
+    "https://i.insider.com/4f0c8843ecad042f0b000013?width=750&format=jpeg&auto=webp",
+  ];

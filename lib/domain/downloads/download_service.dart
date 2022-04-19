@@ -3,7 +3,7 @@ import '../core/api_failures/api_core_failures.dart';
 import 'models/downloads.dart';
 
 //all coming API calls stores in this abstract class
-abstract class IDownloadsRepo {
+abstract class DownloadService {
   /// [Either] means there is actually two chance to happen while calling the [API] data
   /// in either there is two section that we have to fill
   /// this : [Either<L, R>]
@@ -13,3 +13,4 @@ abstract class IDownloadsRepo {
   /// to get the images for downloads page of netflix app
   Future<Either<CoreCommanFailures, List<Downloads>>> getDownloadsImage();
 }
+ 
