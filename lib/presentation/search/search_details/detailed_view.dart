@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
+import 'package:netflix_clone/presentation/search/widgets/search_result.dart';
 
 class SearchDetailedScreen extends StatelessWidget {
   const SearchDetailedScreen({
@@ -19,8 +20,8 @@ class SearchDetailedScreen extends StatelessWidget {
         title: Text(movieName!),
       ),
       body: Center(
-        child: moviePoster.isEmpty
-            ? Text("Can't load Image")
+        child: moviePoster == null
+            ? Text(imageUrl)
             : Image(
                 image: NetworkImage(moviePoster),
               ),

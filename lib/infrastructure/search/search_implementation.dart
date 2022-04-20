@@ -11,8 +11,8 @@ import 'package:netflix_clone/domain/search/model/search_service.dart';
 @LazySingleton(as: SearchService)
 class SearchImplementation implements SearchService {
   @override
-  Future<Either<CoreCommanFailures, SearchResponse>> searchMovies(
-      {required String movieQuery}) async {
+  Future<Either<CoreCommanFailures, SearchResponse>> searchMovies( 
+    {required String movieQuery}) async {
     try {
       final response = await Dio(BaseOptions()).get(
         ApiEndPoints.search,

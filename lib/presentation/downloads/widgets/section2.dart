@@ -40,23 +40,29 @@ class Section2 extends StatelessWidget {
         //code for images
         BlocBuilder<DownloadsBloc, DownloadState>(
           builder: (context, state) {
-            return SizedBox(
-              height: size.width - 40,
-              width: size.width,
-              child: state.isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: size.width * 0.37,
-                          backgroundColor:
-                              const Color.fromARGB(255, 66, 66, 66),
-                        ),
-                        DownloadsImageWIdget(
-                          //image url from API.
-                          //image appent URL is base url of trendng section of API
-                          image:
+            if (state.downloads.isEmpty) {
+              return SizedBox(
+                  height: size.width - 40,
+                  width: size.width,
+                  child: const Center(child: Icon(Icons.wifi_off)));
+            } else {
+              return SizedBox(
+                height: size.width - 40,
+                width: size.width,
+                child: state.isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: size.width * 0.37,
+                            backgroundColor:
+                                const Color.fromARGB(255, 66, 66, 66),
+                          ),
+                          DownloadsImageWIdget(
+                            //image url from API.
+                            //image appent URL is base url of trendng section of API
+                            image:
 // in state we setted a variable called download to get all
 // list of download, so in that variable now a downlaod list availble
 // with API Value. so we only have to call tis here and declare array
@@ -65,24 +71,25 @@ class Section2 extends StatelessWidget {
 
 //* now  all the trending movies image from the API is listed in the variable.
 //* as its a list all photo store like array, so we have to declare the array/list position;
-                              '$imageAppentURL${state.downloads[0].posterPath}',
-                          margin: const EdgeInsets.only(left: 140),
-                          angle: 15,
-                        ),
-                        DownloadsImageWIdget(
-                          image:
-                              '$imageAppentURL${state.downloads[1].posterPath}',
-                          margin: const EdgeInsets.only(right: 140),
-                          angle: -15,
-                        ),
-                        DownloadsImageWIdget(
-                          image:
-                              '$imageAppentURL${state.downloads[2].posterPath}',
-                          margin: EdgeInsets.zero,
-                        )
-                      ],
-                    ),
-            );
+                                '$imageAppentURL${state.downloads[0].posterPath}',
+                            margin: const EdgeInsets.only(left: 140),
+                            angle: 15,
+                          ),
+                          DownloadsImageWIdget(
+                            image:
+                                '$imageAppentURL${state.downloads[1].posterPath}',
+                            margin: const EdgeInsets.only(right: 140),
+                            angle: -15,
+                          ),
+                          DownloadsImageWIdget(
+                            image:
+                                '$imageAppentURL${state.downloads[2].posterPath}',
+                            margin: EdgeInsets.zero,
+                          )
+                        ],
+                      ),
+              );
+            }
           },
         ),
       ],

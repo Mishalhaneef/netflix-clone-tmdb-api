@@ -21,9 +21,15 @@ class DownloadsRepository implements DownloadService {
       //* after catching and checking errors sending response darta as list from json
       //* to the function
       if (response.statusCode == 200 || response.statusCode == 201) {
+        // as it succes, returning list of download
         final downloadList = (response.data['results'] as List).map((e) {
           return Downloads.fromJson(e);
         }).toList();
+
+        // final List<Downloads> downloadLists = [];
+        // for (final raw in response.data) {
+        //   downloadLists.add(Downloads.fromJson(raw as Map<String, dynamic>));
+        // }
         print(downloadList);
         return Right(downloadList);
       } else {

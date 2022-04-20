@@ -23,13 +23,14 @@ class SearchResultWidget extends StatelessWidget {
           child: BlocBuilder<SearchBloc, SearchState>(
             builder: (context, state) {
               return GridView.count(
-                physics: const BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   crossAxisCount: 3,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 5,
                   childAspectRatio: 1 / 1.5,
-                  children: List.generate(20, (index) {
+                  children:
+                      List.generate(state.searchResultData.length, (index) {
                     final movie = state.searchResultData[index];
                     return movie.posterPath == null
                         ? const Center(

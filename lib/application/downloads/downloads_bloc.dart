@@ -20,11 +20,12 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadState> {
   /// downloads page initial state declared in super(). 
   DownloadsBloc(this._downloadsRepo) : super(DownloadState.initial()) {
     on<_GetDownloadsImage>((event, emit) async {
-      // emiting state class, [isLoading] as true and failure or succ option as none().
+      
       if (state.downloads.isNotEmpty) {
         emit(state);
         return;
       }
+      // emiting state class, [isLoading] as true and failure or succ option as none().
       emit(
         state.copyWith(
           isLoading: true,
@@ -48,6 +49,7 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadState> {
             return state.copyWith(
               isLoading: false,
               downloadsFailureOrSuccesOption: some(Left(failure)),
+              
             );
           },
           (succes) {
